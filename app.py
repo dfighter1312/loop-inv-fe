@@ -9,15 +9,20 @@ st. set_page_config(layout="wide")
 # Load the program details from the .csv file
 program_df = pd.read_csv('program_details_updated.csv')
 
+# Get mapping index
+with open('map_index.json', 'r') as f:
+    map_index = json.load(f)
+
 def app():
     st.title("Examining the Loop Invariant Benchmark")
     st.write("The benchmark is taken from https://github.com/PL-ML/code2inv")
     
     # Dropdown for program index selection
-    program_index = st.selectbox(
+    descr_index = st.selectbox(
         label="Select a program index",
-        options=range(1, 134)
+        options=[" | ".join([i[0], str(i[1])]) for i in sorted(map_index.items(), key=lambda x: (x[0], x[1]))]
     )
+    program_index = int(descr_index.split(" | ")[1])
     
     # Display the program details
     col1, col2 = st.columns(2)
