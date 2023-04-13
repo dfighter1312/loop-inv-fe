@@ -7,7 +7,7 @@ import pandas as pd
 st. set_page_config(layout="wide")
 
 # Load the program details from the .csv file
-program_df = pd.read_csv('program_details.csv')
+program_df = pd.read_csv('program_details_updated.csv')
 
 def app():
     st.title("Examining the Loop Invariant Benchmark")
