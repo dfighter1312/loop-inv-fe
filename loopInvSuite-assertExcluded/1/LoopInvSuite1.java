@@ -5,7 +5,7 @@ public class LoopInvSuite1 {
       y = 0;
 
       if (x == 1 && y == 0) {
-        while (y < 10) {
+        while (y < 100000) {
           {
             x = x + y;
             y = y + 1;
