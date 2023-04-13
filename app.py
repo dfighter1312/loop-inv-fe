@@ -82,7 +82,7 @@ def app():
             with open(f"C_instances/c/{idx}.c", 'r') as f:
                 code_snippet = f.read()
             df.loc[idx-1, 'Code Snippet'] = code_snippet
-            df.loc[idx-1, 'Comment'] = comments.get(idx, "")
+            df.loc[idx-1, 'Comment'] = comments.get(str(idx), "")
         
         if export_format == "CSV":
             st.download_button(
